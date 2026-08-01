@@ -1,0 +1,458 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:white;
+    overflow:hidden;
+}
+
+
+/* =====================
+   SURAT PEMBUKA
+===================== */
+
+#welcome{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:white;
+    z-index:10;
+    transition:1s;
+}
+
+#welcome.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.card{
+    width:90%;
+    max-width:420px;
+    padding:35px;
+    text-align:center;
+    border-radius:25px;
+    background:white;
+    box-shadow:0 0 40px #ffb6d9;
+    animation:masuk 1.5s ease;
+}
+
+
+@keyframes masuk{
+
+    from{
+        transform:scale(.5) translateY(50px);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+
+.card h1{
+    color:#ff4f9a;
+    margin-bottom:20px;
+}
+
+
+.card p{
+    color:#555;
+    line-height:28px;
+    margin-bottom:20px;
+}
+
+
+.nama span{
+    color:#ff4f9a;
+    font-weight:bold;
+}
+
+
+#startBtn{
+
+    border:none;
+    background:#ff5fa8;
+    color:white;
+    padding:15px 35px;
+    border-radius:50px;
+    font-size:17px;
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+#startBtn:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+/* =====================
+   GALERI FOTO
+===================== */
+
+#gallery{
+
+    width:100%;
+    height:100vh;
+    display:none;
+    position:relative;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+.slides{
+
+    width:100%;
+    height:100%;
+    position:relative;
+
+}
+
+
+.slide{
+
+    position:absolute;
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    transform:translateX(100%);
+
+    transition:0.8s ease;
+
+}
+
+
+.slide.active{
+
+    opacity:1;
+    transform:translateX(0);
+
+}
+
+
+
+.slide img{
+
+    width:320px;
+    height:430px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 40px rgba(255,80,150,.3);
+
+    animation:fotoMasuk 1s;
+
+}
+
+
+
+@keyframes fotoMasuk{
+
+    from{
+
+        transform:scale(.8);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}
+
+
+/* KETERANGAN */
+
+.caption{
+
+    margin-top:20px;
+
+    width:85%;
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:18px;
+
+    line-height:28px;
+
+}
+
+
+
+/* =====================
+   TOMBOL
+===================== */
+
+
+.nav{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ff5fa8;
+
+    color:white;
+
+    font-size:25px;
+
+    z-index:5;
+
+}
+
+
+
+.prev{
+
+    left:20px;
+
+}
+
+
+.next{
+
+    right:20px;
+
+}
+
+
+
+/* =====================
+   DOT FOTO
+===================== */
+
+
+.dots{
+
+    position:absolute;
+
+    bottom:25px;
+
+    display:flex;
+
+    gap:8px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
+
+
+.dot{
+
+    width:12px;
+
+    height:12px;
+
+    background:#ffc1dd;
+
+    border-radius:50%;
+
+}
+
+
+.dot.active{
+
+    width:30px;
+
+    border-radius:20px;
+
+    background:#ff5fa8;
+
+}
+
+
+
+/* =====================
+   LOVE PUTIH DIAM
+===================== */
+
+#love-container,
+#flower-container{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+
+.decor-love{
+
+    position:absolute;
+
+    color:white;
+
+    font-size:30px;
+
+}
+
+
+
+/* =====================
+   BUNGA PINK DIAM
+===================== */
+
+
+.decor-flower{
+
+    position:absolute;
+
+    font-size:30px;
+
+}
+
+
+/* posisi dekorasi */
+
+
+.decor-love:nth-child(1){
+
+    top:10%;
+    left:10%;
+
+}
+
+
+.decor-love:nth-child(2){
+
+    top:70%;
+    right:15%;
+
+}
+
+
+.decor-flower:nth-child(1){
+
+    top:20%;
+    right:10%;
+
+}
+
+
+.decor-flower:nth-child(2){
+
+    bottom:15%;
+    left:10%;
+
+}
+
+
+
+/* =====================
+   JALAN PINK
+===================== */
+
+
+.pink-road{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:8px;
+
+    background:linear-gradient(
+        90deg,
+        #ffd0e5,
+        #ff5fa8,
+        #ffd0e5
+    );
+
+    background-size:200%;
+
+    animation:jalan 3s linear infinite;
+
+}
+
+
+
+@keyframes jalan{
+
+    from{
+
+        background-position:0;
+
+    }
+
+    to{
+
+        background-position:200%;
+
+    }
+
+}
+
+
+
+/* =====================
+   HP
+===================== */
+
+
+@media(max-width:600px){
+
+    .slide img{
+
+        width:85%;
+        height:400px;
+
+    }
+
+
+    .caption{
+
+        font-size:16px;
+
+    }
+
+
+}
